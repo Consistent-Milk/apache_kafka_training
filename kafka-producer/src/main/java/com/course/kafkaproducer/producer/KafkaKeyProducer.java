@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaKeyProducer {
 	
-	
 	@Autowired
 	private KafkaTemplate<String, String> kafkaTemplate;
 	
