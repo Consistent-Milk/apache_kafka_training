@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.stereotype.Service;
+//import org.springframework.stereotype.Service;
 
 import com.course.kafkaconsumer.entity.Employee;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-@Service
+//@Service
 public class EmployeeJsonConsumer {
 	private ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 	
@@ -23,5 +23,6 @@ public class EmployeeJsonConsumer {
 	public void consume(String message) throws JsonParseException, JsonMappingException, IOException {
 		var emp = objectMapper.readValue(message, Employee.class);
 		log.info("Employee is {}", emp);
+		
 	}
 }
